@@ -1,0 +1,12 @@
+###   To Do 
+- [ ] Add Button
+- [ ] All Button
+- [ ] Active Button
+- [ ] Completed Button
+- [ ] CheckBox Functionality
+- [ ] Edit Button
+- [ ] Delete Button
+- [ ] Connect to a Backend 
+- [ ] Save to Directory
+- [ ] Add Unit Tests
+- [ ] Deploy
