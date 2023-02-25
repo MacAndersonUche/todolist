@@ -2,12 +2,7 @@ import { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { Task } from "./Task";
 import { activeTasks, completedTasks } from "./utility";
 
-interface FormButtonProps {
-  todos: Task[];
-  setToDos: Dispatch<SetStateAction<Task[]>>;
-}
-
-const FormButtonGroup = ({ todos, setToDos }: FormButtonProps) => {
+const FormButtonGroup = () => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     // // event.preventDefault();
     // const btnName = event.currentTarget.name;

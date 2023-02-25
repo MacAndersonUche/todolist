@@ -4,6 +4,7 @@
 - [ ] Active Button
 - [ ] Completed Button
 - [ ] CheckBox Functionality
+- [ ] Arial pressed value
 - [ ] Edit Button
 - [ ] Delete Button
 - [ ] Connect to a Backend 
