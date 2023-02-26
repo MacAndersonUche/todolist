@@ -23,16 +23,30 @@ export function completedTasks(unfiltered: Task[]) {
 }
 
 interface ToDoStore {
-    toDos: Task[]
-    setToDos: (newTodos: Task[]) => void
-    filterActiveToDos: (newTodos: Task[]) => void
-    filterCompletedToDos: (newTodos: Task[]) => void
+    toDos: Task[];
+    active: Task[];
+    completed: Task[];
+    status: "All";
+    isActive: boolean;
+    setIsActive: (val: boolean) => void;
+    isCompleted: boolean;
+    setIsCompleted: (val: boolean) => void;
+    setToDos: (newTodos: Task[]) => void;
+    filterActiveToDos: (newTodos: Task[]) => void;
+    filterCompletedToDos: (newTodos: Task[]) => void;
 }
-
 export const useStore = create<ToDoStore>((set) => ({
     toDos: Mock_ToDo,
-    setToDos: (newTodos: Task[]) => set((state: any) => ({ ...state, toDos: newTodos })),
-    filterActiveToDos: (newTodos: Task[]) => set((state: any) => ({ ...state, toDos: activeTasks(newTodos) })),
-    filterCompletedToDos: (newTodos: Task[]) => set((state: any) => ({ ...state, toDos: completedTasks(newTodos) })),
-
+    active: [],
+    completed: [],
+    status: "All",
+    isActive: false,
+    setIsActive: (val: boolean) => set((state: ToDoStore) => ({ ...state, isActive: val })),
+    isCompleted: false,
+    setIsCompleted: (val: boolean) => set((state: ToDoStore) => ({ ...state, isCompleted: val })),
+    setToDos: (newTodos: Task[]) => set((state: ToDoStore) => ({ ...state, toDos: newTodos })),
+    filterActiveToDos: (newTodos: Task[]) =>
+        set((state: ToDoStore) => ({ ...state, active: activeTasks(newTodos) })),
+    filterCompletedToDos: (newTodos: Task[]) =>
+        set((state: ToDoStore) => ({ ...state, completed: completedTasks(newTodos) })),
 }));

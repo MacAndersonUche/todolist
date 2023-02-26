@@ -1,26 +1,8 @@
-import { Dispatch, SetStateAction, SyntheticEvent } from "react";
-import { Task } from "./Task";
-import { activeTasks, completedTasks } from "./utility";
+interface Props {
+  handleClick: any;
+}
 
-const FormButtonGroup = () => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // // event.preventDefault();
-    // const btnName = event.currentTarget.name;
-    // if (btnName === "Active") {
-    //   const filtered = activeTasks(todos);
-    //   setToDos(filtered);
-    //   console.log(todos);
-    //   return;
-    // }
-    // if (btnName === "Completed") {
-    //   const filtered = completedTasks(todos);
-    //   setToDos(filtered);
-    //   console.log(todos);
-    //   return;
-    // }
-    // setToDos(todos);
-    // console.log(event.currentTarget.name);
-  };
+const FormButtonGroup = ({ handleClick }: Props) => {
   return (
     <div className="filters btn-group stack-exception">
       {["All", "Completed", "Active"].map((state) => (

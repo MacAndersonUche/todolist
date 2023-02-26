@@ -1,8 +1,8 @@
 ###   To Do 
 - [ ] Add Button
-- [ ] All Button
-- [ ] Active Button
-- [ ] Completed Button
+- [X] All Button
+- [X] Active Button
+- [X] Completed Button
 - [ ] CheckBox Functionality
 - [ ] Arial pressed value
 - [ ] Edit Button
