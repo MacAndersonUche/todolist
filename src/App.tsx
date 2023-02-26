@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import FormButtonGroup from "./todo/FormButtonGroup";
 import TaskSingle from "./todo/TaskSingle";
@@ -16,6 +17,7 @@ function App() {
     filterActiveToDos,
     filterCompletedToDos,
   } = useStore();
+  const [pressed, setPressed] = useState(false);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     // event.preventDefault();
     const btnName = event.currentTarget.name;
@@ -23,17 +25,20 @@ function App() {
       filterActiveToDos(toDos);
       setIsActive(true);
       setIsCompleted(false);
+      setPressed(true);
       return;
     }
     if (btnName === "Completed") {
       filterCompletedToDos(toDos);
       setIsCompleted(true);
       setIsActive(false);
+      setPressed(true);
       return;
     }
     if (btnName === "All") {
       setIsActive(false);
       setIsCompleted(false);
+      setPressed(true);
       return;
     }
   };
@@ -58,7 +63,7 @@ function App() {
           Add
         </button>
       </form>
-      <FormButtonGroup handleClick={handleClick} />
+      <FormButtonGroup handleClick={handleClick} pressed={pressed} />
       {status === "All" && !isActive && !isCompleted && (
         <h2 id="list-heading">You have a total of {toDos.length} tasks</h2>
       )}

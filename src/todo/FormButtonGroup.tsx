@@ -1,15 +1,16 @@
 interface Props {
   handleClick: any;
+  pressed: boolean;
 }
 
-const FormButtonGroup = ({ handleClick }: Props) => {
+const FormButtonGroup = ({ handleClick, pressed }: Props) => {
   return (
     <div className="filters btn-group stack-exception">
       {["All", "Completed", "Active"].map((state) => (
         <button
           type="button"
           className="btn toggle-btn"
-          aria-pressed="true"
+          aria-pressed={pressed}
           onClick={handleClick}
           key={state}
           name={state}

@@ -3,10 +3,10 @@
 - [X] All Button
 - [X] Active Button
 - [X] Completed Button
-- [ ] CheckBox Functionality
+- [X] CheckBox Functionality
 - [ ] Arial pressed value
 - [ ] Edit Button
-- [ ] Delete Button
+- [ ] Delete Button (Buggy)
 - [ ] Connect to a Backend 
 - [ ] Save to Directory
 - [ ] Add Unit Tests
