@@ -1,5 +1,6 @@
 import React from "react";
 import TaskButtonGroup from "./TaskButtonGroup";
+import { useStore } from "./utility";
 
 interface TaskProps {
   todo: string;
@@ -8,6 +9,12 @@ interface TaskProps {
 }
 
 const TaskSingle = ({ todo, inputId }: TaskProps) => {
+  const { toDos, setToDos } = useStore();
+
+  const handleDeleteClick = () => {
+    const filtered = toDos.filter((note) => note.todo !== todo);
+    setToDos(filtered);
+  };
   return (
     <>
       <div className="c-cb">
@@ -16,7 +23,7 @@ const TaskSingle = ({ todo, inputId }: TaskProps) => {
           {todo}
         </label>
       </div>
-      <TaskButtonGroup />
+      <TaskButtonGroup handleDeleteClick={handleDeleteClick} />
     </>
   );
 };
